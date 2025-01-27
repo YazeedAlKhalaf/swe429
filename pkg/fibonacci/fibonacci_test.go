@@ -4,21 +4,27 @@ import (
 	"fmt"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
-func TestFib_Gives5thFibonacci(t *testing.T) {
+func TestFib_Gives10thFibonacci(t *testing.T) {
 	n := 10
+	res := Fib(n)
 	fmt.Printf("fib of %d: %d\n", n, Fib(n))
+
+	assert.Equal(t, 55, res)
 }
 
-func TestFibOptimized_Gives5thFibonacci(t *testing.T) {
+func TestFibOptimized_Gives10thFibonacci(t *testing.T) {
 	n := 10
-	fmt.Printf("fib optmized of %d: %d\n", n, FibOptimized(n))
+	res := FibOptimized(n)
+	fmt.Printf("fib optmized of %d: %d\n", n, res)
+
+	assert.Equal(t, 55, res)
 }
 
-func TestComparison(t *testing.T) {
-	n := 30
-
+func runComparisonTest(t *testing.T, n int) {
 	startOptimized := time.Now()
 	fmt.Printf("fib optmized %d: %d\n", n, FibOptimized(n))
 	endOptimized := time.Now()
@@ -35,4 +41,14 @@ func TestComparison(t *testing.T) {
 
 	fmt.Println("========")
 	fmt.Printf("optmized is faster by %d milliseconds\n", fibUnoptimizedMilli-fibOptimizedMilli)
+
+	assert.Less(t, fibOptimizedMilli, fibUnoptimizedMilli)
+}
+
+func TestComparison_30thFibonacci(t *testing.T) {
+	runComparisonTest(t, 30)
+}
+
+func TestComparison_40thFibonacci(t *testing.T) {
+	runComparisonTest(t, 40)
 }
