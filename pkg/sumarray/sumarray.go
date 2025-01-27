@@ -1,8 +1,6 @@
 package sumarray
 
-import "fmt"
-
-func sumArrayInt(arr []int) int {
+func SumArrayInt(arr []int) int {
 	return sumArrayIntInternal(arr, len(arr))
 }
 
@@ -12,10 +10,4 @@ func sumArrayIntInternal(arr []int, n int) int {
 	}
 
 	return arr[n-1] + sumArrayIntInternal(arr, n-1)
-}
-
-func main() {
-	arr := []int{5, 6, 7, 10, 34}
-
-	fmt.Printf("array summation: %d\n", sumArrayInt(arr))
 }
