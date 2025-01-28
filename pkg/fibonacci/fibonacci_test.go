@@ -25,6 +25,15 @@ func TestFibOptimized_Gives10thFibonacci(t *testing.T) {
 	assert.Equal(t, big.NewInt(55), res)
 }
 
+func TestFibOptimized_Gives100thFibonacci(t *testing.T) {
+	n := uint64(100)
+	res := FibOptimized(n)
+	fmt.Printf("fib optimized of %d: %s\n", n, res.String())
+
+	expected, _ := new(big.Int).SetString("139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125", 10)
+	assert.Equal(t, expected, res)
+}
+
 func TestFibOptimized_Gives500thFibonacci(t *testing.T) {
 	n := uint64(500)
 	res := FibOptimized(n)
