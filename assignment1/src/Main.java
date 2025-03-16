@@ -22,7 +22,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int[] inputSizes = {5, 10, 50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000};
+        int[] inputSizes = {5, 10, 50, 100, 250, 500, 1000, 2500, 5000};
 
         int[][] testArrays = generateTestArrays(inputSizes);
 
