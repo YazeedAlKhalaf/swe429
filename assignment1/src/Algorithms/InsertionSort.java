@@ -1,7 +1,7 @@
 package Algorithms;
 
-public class InsertionSort {
-    public static int doSort(int[] arr) {
+public class InsertionSort implements SortingAlgorithm {
+    public int doSort(int[] arr) {
         int comparisons = 0;
 
         int n = arr.length;
