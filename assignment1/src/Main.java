@@ -1,4 +1,5 @@
 import Algorithms.InsertionSort;
+import Algorithms.MergeSort;
 import Algorithms.SortingAlgorithm;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
@@ -27,16 +28,17 @@ public class Main {
         algorithmResults.put("Quick Sort", new HashMap<>());
 
         InsertionSort insertionSort = new InsertionSort();
+        MergeSort mergeSort = new MergeSort();
 
         int[] warmUpArray = generateRandomArray(1000);
         insertionSort.doSort(warmUpArray);
 
         testAlgorithm("Insertion Sort", inputSizes, testArrays, insertionSort, algorithmResults);
-        // testAlgorithm("Merge Sort", inputSizes, testArrays, Main::mergeSort, algorithmResults);
+        testAlgorithm("Merge Sort", inputSizes, testArrays, mergeSort, algorithmResults);
         // testAlgorithm("Quick Sort", inputSizes, testArrays, Main::quickSort, algorithmResults);
 
         createScatterPlot(algorithmResults.get("Insertion Sort"), "Insertion Sort Performance", "Input Size", "Time (nanoseconds)", "InsertionSortScatterPlot.png");
-        // createScatterPlot(algorithmResults.get("Merge Sort"), "Merge Sort Performance", "Input Size", "Time (nanoseconds)", "MergeSortScatterPlot.png");
+         createScatterPlot(algorithmResults.get("Merge Sort"), "Merge Sort Performance", "Input Size", "Time (nanoseconds)", "MergeSortScatterPlot.png");
         // createScatterPlot(algorithmResults.get("Quick Sort"), "Quick Sort Performance", "Input Size", "Time (nanoseconds)", "QuickSortScatterPlot.png");
 
         createCombinedScatterPlot(algorithmResults, "Combined Sorting Algorithms Performance", "Input Size", "Time (nanoseconds)", "CombinedSortingAlgorithmsScatterPlot.png");
