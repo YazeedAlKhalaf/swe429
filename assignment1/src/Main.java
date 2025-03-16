@@ -66,7 +66,7 @@ public class Main {
     }
 
     private static int[] generateRandomArray(int n) {
-        Random rand = new Random();
+        Random rand = new Random(1337);
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             array[i] = rand.nextInt(1000);
